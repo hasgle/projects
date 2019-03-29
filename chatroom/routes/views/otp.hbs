@@ -1,0 +1,49 @@
+otp form coms here
+
+
+{{msg}}
+        
+            <img src="https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/SMS-512.png" class="img-responsive" style="width:200px; height:200px;margin:0 auto;"><br>
+            
+            <h1 class="text-center">Verify your mobile number</h1><br>
+            <p class="lead" style="align:center"></p><p>  An OTP has been sent to your registered Mobile Number. Please enter the 4 digit OTP below to continue</p>  <p></p>
+ <form action="/otp_verification" method="post">
+                    <div class="form-group">
+                        <i class="fa fa-user"></i>
+                        <input type="text" class="form-control" placeholder="enter otp" name="otp" required="required">
+                    </div>
+                 
+                          
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="verify">
+                    </div>
+
+                </form> 
+    
+<button onclick=" location.href='/';">cancel</button>  
+
+   <button type="button" onclick=" " id="rsnd_btn" style="display:block;"></button>
+
+
+  <script>
+var i=0;  	
+
+var myVar = setInterval(function(){
+
+i=i+1;
+console.log(i);
+document.getElementById("rsnd_btn").innerHTML='resend otp'+'('+i+')';
+document.getElementById("rsnd_btn").onclick=function(){
+	console.log('wait');
+}
+},1000);
+        var timer = setTimeout(function() {
+           document.getElementById("rsnd_btn").innerHTML = "Resend otp";
+           document.getElementById("rsnd_btn").onclick=function(){
+	location.href='/resendOtp';
+}
+           window.clearInterval(myVar);
+           
+        }, 30000);
+
+    </script>

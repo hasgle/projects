@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DRISTI - A Farther Vision</title>
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+     
+<script>alert("{{msg}}")</script>
+    <header class="active">
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+            <p>DRISTI</p>
+            <p>A Farther Vision</p>
+        </div>
+        <div class="FAB"><a href="/logout">Logout</a></div>
+        <div class="navbar">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/user/about">About</a></li>
+                <li><a href="/user/contact">Contact</a></li>
+                <li><a href="/addFrnd">Add Friend</a></li>
+            </ul>
+        </div>
+    </header>
+    <section>
+        <div class="friends" id='frndlist'>
+            
+        </div>
+    </section>
+     <div class="addfriends">
+            <a href="add.html">Add Friends</a>
+        </div>
+    <footer></footer>
+    <script>
+      var len={{userArray.length}};
+      var userArray="{{userArray}}"
+      var collName="{{collName}}"
+      var patharray="{{frndPath}}"
+      patharray=patharray.split(',');
+      userArray=userArray.split(',');
+      collName=collName.split(',');
+          console.log(collName);
+          console.log(userArray);
+          console.log(patharray);
+          var i=0
+          while(i<len){
+var list=document.getElementById("frndlist")
+var div=document.createElement("div");
+list.appendChild(div);
+div.id="friend"+len;
+div.innerHTML=  '<img src="'+patharray[2*i+1]+'" alt=""><h2>'+patharray[2*i]+'</h2><h2>'+collName[len-1]+'</h2><a href="/remove">Remove</a>';
+div.className="friend"; 
+
+i++;
+
+          }
+    </script>
+</body>
+</html>

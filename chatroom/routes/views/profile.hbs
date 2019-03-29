@@ -1,0 +1,41 @@
+
+
+
+
+ <img src='\images\default.jpg' width="250" height="400" id="pro-img"><br>
+
+<a id="header">hello</a>
+
+<br><br>
+
+<button value="Edit profile" onclick="location.href='/uploadProfile';" id="editButton">EditProfile</button>
+ <h1>About</h1>
+ <h3><p id="about">.............</p></h3> 
+ <h1>RelationShip Status</h1>
+<h3><p id="status">.............</p></h3> 
+ <h1>Hobbies</h1>
+ <div id="hobbylist">
+<h3>{{profile.hobbies}}</h3>
+ </div>
+
+<a href="/entry"><i class="fa fa-home" style="font-size:36px"></i></a>
+ 
+<script>
+
+
+document.getElementById("header").innerHTML="{{profile.handle_name}}";
+document.getElementById("about").innerHTML="{{profile.about}}";
+//document.getElementById("hobbylist").innerHTML="{{profile.hobbies}}";
+document.getElementById("status").innerHTML="{{profile.status}}";
+document.getElementById("pro-img").src="{{profile.profilePicture}}";
+
+
+
+
+var val="{{profile.hobbies}}";
+var index=val.indexOf(',')
+console.log(val);
+console.log(index);
+
+
+</script>

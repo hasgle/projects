@@ -1,0 +1,1908 @@
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+<head>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
+
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'><link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+<style class="cp-pen-styles">body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #27ae60;
+  font-family: "proxima-nova", "Source Sans Pro", sans-serif;
+  font-size: 1em;
+  letter-spacing: 0.1px;
+  color: #32465a;
+  text-rendering: optimizeLegibility;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  -webkit-font-smoothing: antialiased;
+}
+
+#frame {
+  width: 95%;
+  min-width: 360px;
+  max-width: 1000px;
+  height: 92vh;
+  min-height: 300px;
+  max-height: 720px;
+  background: #E6EAEA;
+}
+@media screen and (max-width: 360px) {
+  #frame {
+    width: 100%;
+    height: 100vh;
+  }
+}
+#frame #sidepanel {
+  float: left;
+  min-width: 280px;
+  max-width: 340px;
+  width: 40%;
+  height: 100%;
+  background: #2c3e50;
+  color: #f5f5f5;
+  overflow: hidden;
+  position: relative;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel {
+    width: 58px;
+    min-width: 58px;
+  }
+}
+#frame #sidepanel #profile {
+  width: 80%;
+  margin: 25px auto;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile {
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px 0 0 0;
+    background: #32465a;
+  }
+}
+#frame #sidepanel #profile.expanded .wrap {
+  height: 210px;
+  line-height: initial;
+}
+#frame #sidepanel #profile.expanded .wrap p {
+  margin-top: 20px;
+}
+#frame #sidepanel #profile.expanded .wrap i.expand-button {
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+#frame #sidepanel #profile .wrap {
+  height: 60px;
+  line-height: 60px;
+  overflow: hidden;
+  -moz-transition: 0.3s height ease;
+  -o-transition: 0.3s height ease;
+  -webkit-transition: 0.3s height ease;
+  transition: 0.3s height ease;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile .wrap {
+    height: 55px;
+  }
+}
+#frame #sidepanel #profile .wrap img {
+  width: 50px;
+  border-radius: 50%;
+  padding: 3px;
+  border: 2px solid #e74c3c;
+  height: auto;
+  float: left;
+  cursor: pointer;
+  -moz-transition: 0.3s border ease;
+  -o-transition: 0.3s border ease;
+  -webkit-transition: 0.3s border ease;
+  transition: 0.3s border ease;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile .wrap img {
+    width: 40px;
+    margin-left: 4px;
+  }
+}
+#frame #sidepanel #profile .wrap img.online {
+  border: 2px solid #2ecc71;
+}
+#frame #sidepanel #profile .wrap img.away {
+  border: 2px solid #f1c40f;
+}
+#frame #sidepanel #profile .wrap img.busy {
+  border: 2px solid #e74c3c;
+}
+#frame #sidepanel #profile .wrap img.offline {
+  border: 2px solid #95a5a6;
+}
+#frame #sidepanel #profile .wrap p {
+  float: left;
+  margin-left: 15px;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile .wrap p {
+    display: none;
+  }
+}
+#frame #sidepanel #profile .wrap i.expand-button {
+  float: right;
+  margin-top: 23px;
+  font-size: 0.8em;
+  cursor: pointer;
+  color: #435f7a;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile .wrap i.expand-button {
+    display: none;
+  }
+}
+#frame #sidepanel #profile .wrap #status-options {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  width: 150px;
+  margin: 70px 0 0 0;
+  border-radius: 6px;
+  z-index: 99;
+  line-height: initial;
+  background: #435f7a;
+  -moz-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile .wrap #status-options {
+    width: 58px;
+    margin-top: 57px;
+  }
+}
+#frame #sidepanel #profile .wrap #status-options.active {
+  opacity: 1;
+  visibility: visible;
+  margin: 75px 0 0 0;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile .wrap #status-options.active {
+    margin-top: 62px;
+  }
+}
+#frame #sidepanel #profile .wrap #status-options:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 8px solid #435f7a;
+  margin: -8px 0 0 24px;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile .wrap #status-options:before {
+    margin-left: 23px;
+  }
+}
+#frame #sidepanel #profile .wrap #status-options ul {
+  overflow: hidden;
+  border-radius: 6px;
+}
+#frame #sidepanel #profile .wrap #status-options ul li {
+  padding: 15px 0 30px 18px;
+  display: block;
+  cursor: pointer;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile .wrap #status-options ul li {
+    padding: 15px 0 35px 22px;
+  }
+}
+#frame #sidepanel #profile .wrap #status-options ul li:hover {
+  background: #496886;
+}
+#frame #sidepanel #profile .wrap #status-options ul li span.status-circle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 5px 0 0 0;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile .wrap #status-options ul li span.status-circle {
+    width: 14px;
+    height: 14px;
+  }
+}
+#frame #sidepanel #profile .wrap #status-options ul li span.status-circle:before {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  margin: -3px 0 0 -3px;
+  background: transparent;
+  border-radius: 50%;
+  z-index: 0;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile .wrap #status-options ul li span.status-circle:before {
+    height: 18px;
+    width: 18px;
+  }
+}
+#frame #sidepanel #profile .wrap #status-options ul li p {
+  padding-left: 12px;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #profile .wrap #status-options ul li p {
+    display: none;
+  }
+}
+#frame #sidepanel #profile .wrap #status-options ul li#status-online span.status-circle {
+  background: #2ecc71;
+}
+#frame #sidepanel #profile .wrap #status-options ul li#status-online.active span.status-circle:before {
+  border: 1px solid #2ecc71;
+}
+#frame #sidepanel #profile .wrap #status-options ul li#status-away span.status-circle {
+  background: #f1c40f;
+}
+#frame #sidepanel #profile .wrap #status-options ul li#status-away.active span.status-circle:before {
+  border: 1px solid #f1c40f;
+}
+#frame #sidepanel #profile .wrap #status-options ul li#status-busy span.status-circle {
+  background: #e74c3c;
+}
+#frame #sidepanel #profile .wrap #status-options ul li#status-busy.active span.status-circle:before {
+  border: 1px solid #e74c3c;
+}
+#frame #sidepanel #profile .wrap #status-options ul li#status-offline span.status-circle {
+  background: #95a5a6;
+}
+#frame #sidepanel #profile .wrap #status-options ul li#status-offline.active span.status-circle:before {
+  border: 1px solid #95a5a6;
+}
+#frame #sidepanel #profile .wrap #expanded {
+  padding: 100px 0 0 0;
+  display: block;
+  line-height: initial !important;
+}
+#frame #sidepanel #profile .wrap #expanded label {
+  float: left;
+  clear: both;
+  margin: 0 8px 5px 0;
+  padding: 5px 0;
+}
+#frame #sidepanel #profile .wrap #expanded input {
+  border: none;
+  margin-bottom: 6px;
+  background: #32465a;
+  border-radius: 3px;
+  color: #f5f5f5;
+  padding: 7px;
+  width: calc(100% - 43px);
+}
+#frame #sidepanel #profile .wrap #expanded input:focus {
+  outline: none;
+  background: #435f7a;
+}
+#frame #sidepanel #search {
+  border-top: 1px solid #32465a;
+  border-bottom: 1px solid #32465a;
+  font-weight: 300;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #search {
+    display: none;
+  }
+}
+#frame #sidepanel #search label {
+  position: absolute;
+  margin: 10px 0 0 20px;
+}
+#frame #sidepanel #search input {
+  font-family: "proxima-nova",  "Source Sans Pro", sans-serif;
+  padding: 10px 0 10px 46px;
+  width: calc(100% - 25px);
+  border: none;
+  background: #32465a;
+  color: #f5f5f5;
+}
+#frame #sidepanel #search input:focus {
+  outline: none;
+  background: #435f7a;
+}
+#frame #sidepanel #search input::-webkit-input-placeholder {
+  color: #f5f5f5;
+}
+#frame #sidepanel #search input::-moz-placeholder {
+  color: #f5f5f5;
+}
+#frame #sidepanel #search input:-ms-input-placeholder {
+  color: #f5f5f5;
+}
+#frame #sidepanel #search input:-moz-placeholder {
+  color: #f5f5f5;
+}
+#frame #sidepanel #contacts {
+  height: calc(100% - 177px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #contacts {
+    height: calc(100% - 149px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  #frame #sidepanel #contacts::-webkit-scrollbar {
+    display: none;
+  }
+}
+#frame #sidepanel #contacts.expanded {
+  height: calc(100% - 334px);
+}
+#frame #sidepanel #contacts::-webkit-scrollbar {
+  width: 8px;
+  background: #2c3e50;
+}
+#frame #sidepanel #contacts::-webkit-scrollbar-thumb {
+  background-color: #243140;
+}
+#frame #sidepanel #contacts ul li.contact {
+  position: relative;
+  padding: 10px 0 15px 0;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #contacts ul li.contact {
+    padding: 6px 0 46px 8px;
+  }
+}
+#frame #sidepanel #contacts ul li.contact:hover {
+  background: #32465a;
+}
+#frame #sidepanel #contacts ul li.contact.active {
+  background: #32465a;
+  border-right: 5px solid #435f7a;
+}
+#frame #sidepanel #contacts ul li.contact.active span.contact-status {
+  border: 2px solid #32465a !important;
+}
+#frame #sidepanel #contacts ul li.contact .wrap {
+  width: 88%;
+  margin: 0 auto;
+  position: relative;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #contacts ul li.contact .wrap {
+    width: 100%;
+  }
+}
+#frame #sidepanel #contacts ul li.contact .wrap span {
+  position: absolute;
+  left: 0;
+  margin: -2px 0 0 -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #2c3e50;
+  background: #95a5a6;
+}
+#frame #sidepanel #contacts ul li.contact .wrap span.online {
+  background: #2ecc71;
+}
+#frame #sidepanel #contacts ul li.contact .wrap span.away {
+  background: #f1c40f;
+}
+#frame #sidepanel #contacts ul li.contact .wrap span.busy {
+  background: #e74c3c;
+}
+#frame #sidepanel #contacts ul li.contact .wrap img {
+  width: 40px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 10px;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #contacts ul li.contact .wrap img {
+    margin-right: 0px;
+  }
+}
+#frame #sidepanel #contacts ul li.contact .wrap .meta {
+  padding: 5px 0 0 0;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #contacts ul li.contact .wrap .meta {
+    display: none;
+  }
+}
+#frame #sidepanel #contacts ul li.contact .wrap .meta .name {
+  font-weight: 600;
+}
+#frame #sidepanel #contacts ul li.contact .wrap .meta .preview {
+  margin: 5px 0 0 0;
+  padding: 0 0 1px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -moz-transition: 1s all ease;
+  -o-transition: 1s all ease;
+  -webkit-transition: 1s all ease;
+  transition: 1s all ease;
+}
+#frame #sidepanel #contacts ul li.contact .wrap .meta .preview span {
+  position: initial;
+  border-radius: initial;
+  background: none;
+  border: none;
+  padding: 0 2px 0 0;
+  margin: 0 0 0 1px;
+  opacity: .5;
+}
+#frame #sidepanel #bottom-bar {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+#frame #sidepanel #bottom-bar button {
+  float: left;
+  border: none;
+  width: 50%;
+  padding: 10px 0;
+  background: #32465a;
+  color: #f5f5f5;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-family: "proxima-nova",  "Source Sans Pro", sans-serif;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #bottom-bar button {
+    float: none;
+    width: 100%;
+    padding: 15px 0;
+  }
+}
+#frame #sidepanel #bottom-bar button:focus {
+  outline: none;
+}
+#frame #sidepanel #bottom-bar button:nth-child(1) {
+  border-right: 1px solid #2c3e50;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #bottom-bar button:nth-child(1) {
+    border-right: none;
+    border-bottom: 1px solid #2c3e50;
+  }
+}
+#frame #sidepanel #bottom-bar button:hover {
+  background: #435f7a;
+}
+#frame #sidepanel #bottom-bar button i {
+  margin-right: 3px;
+  font-size: 1em;
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #bottom-bar button i {
+    font-size: 1.3em;
+  }
+}
+@media screen and (max-width: 735px) {
+  #frame #sidepanel #bottom-bar button span {
+    display: none;
+  }
+}
+#frame .content {
+  float: right;
+  width: 60%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+@media screen and (max-width: 735px) {
+  #frame .content {
+    width: calc(100% - 58px);
+    min-width: 300px !important;
+  }
+}
+@media screen and (min-width: 900px) {
+  #frame .content {
+    width: calc(100% - 340px);
+  }
+}
+#frame .content .contact-profile {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #f5f5f5;
+}
+#frame .content .contact-profile img {
+  width: 40px;
+  border-radius: 50%;
+  float: left;
+  margin: 9px 12px 0 9px;
+}
+#frame .content .contact-profile p {
+  float: left;
+}
+#frame .content .contact-profile .social-media {
+  float: right;
+}
+#frame .content .contact-profile .social-media i {
+  margin-left: 14px;
+  cursor: pointer;
+}
+#frame .content .contact-profile .social-media i:nth-last-child(1) {
+  margin-right: 20px;
+}
+#frame .content .contact-profile .social-media i:hover {
+  color: #435f7a;
+}
+#frame .content .messages {
+  height: auto;
+  min-height: calc(100% - 93px);
+  max-height: calc(100% - 93px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 735px) {
+  #frame .content .messages {
+    max-height: calc(100% - 105px);
+  }
+}
+#frame .content .messages::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+#frame .content .messages::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+#frame .content .messages ul li {
+  display: inline-block;
+  clear: both;
+  float: left;
+  margin: 15px 15px 5px 15px;
+  width: calc(100% - 25px);
+  font-size: 0.9em;
+}
+#frame .content .messages ul li:nth-last-child(1) {
+  margin-bottom: 20px;
+}
+#frame .content .messages ul li.sent img {
+  margin: 6px 8px 0 0;
+}
+#frame .content .messages ul li.sent p {
+  background: #435f7a;
+  color: #f5f5f5;
+}
+#frame .content .messages ul li.replies img {
+  float: right;
+  margin: 6px 0 0 8px;
+}
+#frame .content .messages ul li.replies p {
+  background: #f5f5f5;
+  float: right;
+}
+#frame .content .messages ul li img {
+  width: 22px;
+  border-radius: 50%;
+  float: left;
+}
+#frame .content .messages ul li p {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 205px;
+  line-height: 130%;
+}
+@media screen and (min-width: 735px) {
+  #frame .content .messages ul li p {
+    max-width: 300px;
+  }
+}
+#frame .content .message-input {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 99;
+}
+#frame .content .message-input .wrap {
+  position: relative;
+}
+#frame .content .message-input .wrap input {
+  font-family: "proxima-nova",  "Source Sans Pro", sans-serif;
+  float: left;
+  border: none;
+  width: calc(100% - 90px);
+  padding: 11px 32px 10px 8px;
+  font-size: 0.8em;
+  color: #32465a;
+}
+@media screen and (max-width: 735px) {
+  #frame .content .message-input .wrap input {
+    padding: 15px 32px 16px 8px;
+  }
+}
+#frame .content .message-input .wrap input:focus {
+  outline: none;
+}
+#frame .content .message-input .wrap .attachment {
+  position: absolute;
+  right: 60px;
+  z-index: 4;
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #435f7a;
+  opacity: .5;
+  cursor: pointer;
+}
+@media screen and (max-width: 735px) {
+  #frame .content .message-input .wrap .attachment {
+    margin-top: 17px;
+    right: 65px;
+  }
+}
+#frame .content .message-input .wrap .attachment:hover {
+  opacity: 1;
+}
+#frame .content .message-input .wrap button {
+  float: right;
+  border: none;
+  width: 50px;
+  padding: 12px 0;
+  cursor: pointer;
+  background: #32465a;
+  color: #f5f5f5;
+}
+@media screen and (max-width: 735px) {
+  #frame .content .message-input .wrap button {
+    padding: 16px 0;
+  }
+}
+#frame .content .message-input .wrap button:hover {
+  background: #435f7a;
+}
+#frame .content .message-input .wrap button:focus {
+  outline: none;
+}
+</style></head>
+<body >
+<!-- 
+
+A concept for a chat interface. 
+
+Try writing a new message! :)
+
+
+Follow me here:
+Twitter: https://twitter.com/thatguyemil
+Codepen: https://codepen.io/emilcarlsson/
+Website: http://emilcarlsson.se/
+
+-->
+
+<a href="/entry"><i class="fa fa-home" style="font-size:36px"></i></a>
+
+<div id="frame"  >
+
+	<div id="sidepanel">
+		<div id="profile">
+			<div class="wrap">
+				<img id="profile-img"  src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
+				<p >{{username}}</p>
+				<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
+				<div id="status-options">
+					<ul>
+						<li id="status-online" class="active"><span class="status-circle"></span> <p>Online</p></li>
+						<li id="status-away"><span class="status-circle"></span> <p>Away</p></li>
+						<li id="status-busy"><span class="status-circle"></span> <p>Busy</p></li>
+						<li id="status-offline"><span class="status-circle"></span> <p>Offline</p></li>
+					</ul>
+				</div>
+				<div id="expanded">
+					<label for="twitter"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i></label>
+					<input name="twitter" type="text" value="mikeross" />
+					<label for="twitter"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i></label>
+					<input name="twitter" type="text" value="ross81" />
+					<label for="twitter"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i></label>
+					<input name="twitter" type="text" value="mike.ross" />
+				</div>
+			</div>
+		</div>
+		<div id="search">
+			<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+			<form id="search_form">
+			<input type="text" id="search-contact" placeholder="Search contacts..." /></form>
+		</div>
+		<div id="contacts">
+			<ul>
+			<li class="contact " id="li_chatroom" style="display:block;">
+					<div class="wrap">
+						<span class="contact-status online" id="span_chatroom"></span>
+
+						<img src="http://emilcarlsson.se/assets/louislitt.png" id="img_chatroom" alt="" />
+						<div class="meta">
+							<p class="name" id="name_chatroom" >chatRoom </p>
+							<p class="preview" id="span_msg0" style="font-weight:normal;font-size:12px;" ></p>
+						</div>
+					</div>
+				</li>
+		
+				<li class="contact" id="li_friend1" style="display:none;">
+					<div class="wrap">
+						<span class="contact-status online" id="span_friend1"></span>
+						<img src="http://emilcarlsson.se/assets/louislitt.png" id="img_friend1" alt="" />
+						<div class="meta">
+							<p class="name" id="name_friend1" >Louis Litt</p>
+							<p class="preview" id="span_msg1" style="font-weight:normal;font-size:12px;" ></p>
+						</div>
+					</div>
+				</li>
+				<li class="contact " id="li_friend2" style="display:none;" >
+					<div class="wrap">
+						<span class="contact-status busy" id="span_friend2" ></span>
+						<img src="http://emilcarlsson.se/assets/harveyspecter.png" id="img_friend2"  alt="" />
+						<div class="meta">
+							<p class="name" id="name_friend2" >Harvey Specter </p>
+							<p class="preview" id="span_msg2" style="font-weight:normal;font-size:12px;" ></p>
+						</div>
+					</div>
+				</li>
+			<li class="contact" id="li_friend3" style="display:none;">
+					<div class="wrap">
+						<span class="contact-status online" id="span_friend3"></span>
+						<img src="http://emilcarlsson.se/assets/louislitt.png" id="img_friend3" alt="" />
+						<div class="meta">
+							<p class="name" id="name_friend3" >Louis Litt</p>
+							<p class="preview" id="span_msg3"  style="font-weight:normal;font-size:12px;" ></p>
+						</div>
+					</div>
+				</li>
+
+		<li class="contact" id="li_friend4" style="display:none;">
+					<div class="wrap">
+						<span class="contact-status online" id="span_friend4"></span>
+						<img src="http://emilcarlsson.se/assets/louislitt.png" id="img_friend4" alt="" />
+						<div class="meta">
+							<p class="name" id="name_friend4" >Louis Litt</p>
+							<p class="preview" id="span_msg4" style="font-weight:normal;font-size:12px;" ></p>
+						</div>
+					</div>
+				</li>
+
+			<li class="contact" id="li_friend5" style="display:none;">
+					<div class="wrap">
+						<span class="contact-status online" id="span_friend5"></span>
+						<img src="http://emilcarlsson.se/assets/louislitt.png" id="img_friend5" alt="" />
+						<div class="meta">
+							<p class="name" id="name_friend5" >Louis Litt</p>
+							<p class="preview" id="span_msg5" style="font-weight:normal;font-size:12px;" ></p>
+						</div>
+					</div>
+				</li>
+      <li class="contact" id="li_msg_bin" style="display:block;">
+          <div class="wrap">
+            <span class="contact-status online" id="span_msg_bin"></span>
+            <img src="https://www.practicepanther.com/wp-content/uploads/2016/07/recycle-bin.png" id="img_msg_bin" alt="" />
+            <div class="meta">
+              <p class="name" id="name_msg_bin" >Message_bin</p>
+              <p class="preview" id="span_msg_msg_bin" style="font-weight:normal;font-size:12px;" ></p>
+            </div>
+          </div>
+        </li>
+			
+			
+			</ul>
+		</div>
+		<div id="bottom-bar">
+			<button id="rmv-contact" onclick="subToPage2()"><i class="fa fa-trash-o" style="font-size:24px"></i> <span>Remove contact</span></button>
+			<button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Select Theme<form  id="theme-form">
+      <select >
+    <option  >classic</option>
+    <option >white</option>
+    <option >Black</option>
+    <option >grey</option>
+  </select>
+      </form></span></button>
+		</div>
+	</div>
+	<div class="content">
+		<div class="contact-profile">
+			<img src="http://emilcarlsson.se/assets/harveyspecter.png" id="reciever_img" alt="" />
+			<p id="reciever_name"></p>
+			
+		</div>
+		<div class="messages" id="msg_div">
+		 <center><p id="p_id"></p></center>
+		<ul id="chatroom_window" class="activeW" style="display:none;" >
+			<!--<li class="sent">
+					<img src="" id="profile"alt="" />
+					<p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
+				</li>-->
+               
+		</ul>
+		<ul id="friend1_window" class="inactiveW" style="display:none;">
+		</ul>
+		<ul id="friend2_window" class="inactiveW" style="display:none;">
+		</ul>
+		<ul id="friend3_window" class="inactiveW"  style="display:none;">
+		</ul>
+		<ul id="friend4_window" class="inactiveW" style="display:none;">
+		</ul>
+		<ul id="friend5_window" class="inactiveW" style="display:none;">
+		</ul>
+    <ul id="msg_bin_window" class="inactiveW" style="display:none;">
+    </ul>
+		</div>
+		<div class="message-input">
+			<div class="wrap">
+				<form id="msg_form">
+			<input type="text" id="input-data" placeholder="Write your message..." />
+			
+			<button type="submit" class="submit"  id="sbt_btn"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script >
+	// to display friends fetched from database
+	
+var names={ friend1:null,friend2:null,friend3: null,friend4:null,friend5:'null'};
+    var friends=['','','','',''];
+
+
+window.onload=setDefaults();
+
+
+//============================================displaying stored friends==============
+
+document.getElementById("search_form").addEventListener('submit', subToPage1, false);
+function subToPage1(e){
+	e.preventDefault();
+var contact=document.getElementById("search-contact").value;
+
+socket.emit('getcontact',contact);	
+
+
+}
+
+document.getElementById("msg_form").addEventListener('submit', subToPage, false);
+
+function subToPage(e){
+e.preventDefault();
+var elem=document.getElementById("input-data");
+var msg;
+msg=elem.value;
+socket.emit('msg',{
+	
+	message: msg,
+	username: reciever_name
+
+});
+console.log('===============');
+
+//appending sendeer's mssagee in active window
+
+
+
+var active_col=document.getElementsByClassName("activeW");
+
+console.log(active_col[0]);
+console.log(active_col[0].id);
+//appnding to latest msgs
+if(active_col[0].id=="friend1_window"){
+	console.log('appended');
+document.getElementById('span_msg1').innerHTML='you :'+elem.value;
+document.getElementById('span_msg1').style.fontWeight="normal";
+}
+else if(active_col[0].id=="friend2_window"){
+	
+document.getElementById('span_msg2').innerHTML='you :'+elem.value;
+document.getElementById('span_msg2').style.fontWeight="normal";
+}
+
+else if(active_col[0].id=="friend3_window"){
+	
+document.getElementById('span_msg3').innerHTML='you :'+elem.value;
+document.getElementById('span_msg3').style.fontWeight="normal";
+}
+else if(active_col[0].id=="friend4_window"){
+	
+document.getElementById('span_msg4').innerHTML='you :'+elem.value;
+document.getElementById('span_msg4').style.fontWeight="normal";
+}
+else if(active_col[0].id=="friend5_window"){
+	
+document.getElementById('span_msg5').innerHTML='you :'+elem.value;
+document.getElementById('span_msg5').style.fontWeight="normal";
+}
+else if(active_col[0].id=="chatroom_window"){
+	
+document.getElementById('span_msg0').innerHTML='you :'+elem.value;
+document.getElementById('span_msg0').style.fontWeight="normal";
+}
+else if(active_col[0].id=="msg_bin_window"){
+  
+document.getElementById('span_msg_msg_bin').innerHTML='you :'+elem.value;
+document.getElementById('span_msg_msg_bin').style.fontWeight="normal";
+}
+
+
+var li=document.createElement("li");
+active_col[0].appendChild(li);
+li.innerHTML= '<img src="{{profile_img}}" id="profile" alt="" /> <p>'+elem.value+"</p>";
+li.className="sent";
+elem.value="";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+};
+//==================================================================================set default function====================================================
+function setDefaults(){
+//setting rciever name to chatroom for sockt events 
+reciever_name='chatroom';
+
+
+var stringFriends='{{friendList}}';
+var arrayFriends= stringFriends.split(',');
+console.log(arrayFriends);
+
+names['friend1']=arrayFriends[0];
+names['friend2']=arrayFriends[1];
+names['friend3']=arrayFriends[2];
+names['friend4']=arrayFriends[3];
+names['friend5']=arrayFriends[4];
+
+friends=arrayFriends;
+
+ var name1=document.getElementById("name_friend1");
+ var name2=document.getElementById("name_friend2");
+  var name3=document.getElementById("name_friend3");
+   var name4=document.getElementById("name_friend4");
+    var name5=document.getElementById("name_friend5");
+    name1.innerHTML=names['friend1'];
+     name2.innerHTML=names['friend2'];
+      name3.innerHTML=names['friend3'];
+       name4.innerHTML=names['friend4'];
+        name5.innerHTML=names['friend5'];
+
+  if(names["friend1"])
+{
+    document.getElementById("li_friend1").style.display="block";
+
+}
+ if(names["friend2"]){
+  
+    document.getElementById("li_friend2").style.display="block";
+  
+}
+if(names["friend3"]){
+  
+    document.getElementById("li_friend3").style.display="block";
+  
+}
+ if(names["friend4"]){
+  
+    document.getElementById("li_friend4").style.display="block";
+  
+}
+ if(names["friend5"]){
+  
+    document.getElementById("li_friend5").style.display="block";
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+//setting class of chatroom_window as active while others as inactive
+document.getElementById("chatroom_window").className="activeW";
+document.getElementById("friend1_window").className="inactiveW";
+document.getElementById("friend2_window").className="inactiveW";
+document.getElementById("friend3_window").className="inactiveW";
+document.getElementById("friend4_window").className="inactiveW";
+document.getElementById("friend5_window").className="inactiveW";
+document.getElementById("msg_bin_window").className="inactiveW";
+
+// unhidding th window of selected friend and hidding window of othr frinds
+
+document.getElementById("chatroom_window").style.display="block";
+document.getElementById("friend1_window").style.display="none";
+document.getElementById("friend2_window").style.display="none";
+document.getElementById("friend3_window").style.display="none";
+document.getElementById("friend4_window").style.display="none";
+document.getElementById("friend5_window").style.display="none";
+document.getElementById("msg_bin_window").style.display="none";
+//===========================================================hidding msg alrts======================================================
+
+document.getElementById('span_msg0').style.fontWeight="normal";
+
+//setting chat window title===============
+ document.getElementById("reciever_name").innerHTML='Chat Room';
+
+//===============chat window content======
+var par=document.getElementById("p_id");
+
+par.innerHTML='Chat Room';
+
+//===============setting chatroom contact as active=======
+	document.getElementById("li_chatroom").className="contact active";
+
+ 	document.getElementById("li_friend1").className="contact ";
+ 	document.getElementById("li_friend2").className="contact";
+ 	document.getElementById("li_friend3").className="contact";
+ 	document.getElementById("li_friend4").className="contact ";
+ 	document.getElementById("li_friend5").className="contact";
+  document.getElementById("li_msg_bin").className="contact";
+//================================stting images sources of elements==============
+
+document.getElementById("img_friend1").src="{{friend1}}";
+document.getElementById("img_friend2").src="{{friend2}}";
+document.getElementById("img_friend3").src="{{friend3}}";
+document.getElementById("img_friend4").src="{{friend4}}";
+document.getElementById("img_friend5").src="{{friend5}}";
+document.getElementById("img_chatroom").src="{{chatroom_img}}";
+document.getElementById("reciever_img").src="{{chatroom_img}}";
+document.getElementById("profile-img").src="{{profile_img}}";
+
+
+}
+
+
+function chatroomAction(){
+//setting rciever name to chatroom for sockt events 
+reciever_name='chatroom';
+
+
+
+
+
+
+
+
+
+
+
+
+
+//setting class of chatroom_window as active while others as inactive
+document.getElementById("chatroom_window").className="activeW";
+document.getElementById("friend1_window").className="inactiveW";
+document.getElementById("friend2_window").className="inactiveW";
+document.getElementById("friend3_window").className="inactiveW";
+document.getElementById("friend4_window").className="inactiveW";
+document.getElementById("friend5_window").className="inactiveW";
+document.getElementById("msg_bin_window").className="inactiveW";
+
+// unhidding th window of selected friend and hidding window of othr frinds
+
+document.getElementById("chatroom_window").style.display="block";
+document.getElementById("friend1_window").style.display="none";
+document.getElementById("friend2_window").style.display="none";
+document.getElementById("friend3_window").style.display="none";
+document.getElementById("friend4_window").style.display="none";
+document.getElementById("friend5_window").style.display="none";
+document.getElementById("msg_bin_window").style.display="none";
+//===========================================================hidding msg alrts======================================================
+
+document.getElementById('span_msg0').style.fontWeight="normal";
+
+//setting chat window title===============
+ document.getElementById("reciever_name").innerHTML='Chat Room';
+
+//===============chat window content======
+var par=document.getElementById("p_id");
+
+par.innerHTML='Chat Room';
+
+//===============setting chatroom contact as active=======
+  document.getElementById("li_chatroom").className="contact active";
+
+  document.getElementById("li_friend1").className="contact ";
+  document.getElementById("li_friend2").className="contact";
+  document.getElementById("li_friend3").className="contact";
+  document.getElementById("li_friend4").className="contact ";
+  document.getElementById("li_friend5").className="contact";
+  document.getElementById("li_msg_bin").className="contact";
+//================================stting images sources of elements==============
+
+document.getElementById("img_friend1").src="{{friend1}}";
+document.getElementById("img_friend2").src="{{friend2}}";
+document.getElementById("img_friend3").src="{{friend3}}";
+document.getElementById("img_friend4").src="{{friend4}}";
+document.getElementById("img_friend5").src="{{friend5}}";
+document.getElementById("img_chatroom").src="{{chatroom_img}}";
+document.getElementById("reciever_img").src="{{chatroom_img}}";
+document.getElementById("profile-img").src="{{profile_img}}";
+
+
+}
+
+
+
+
+</script>
+ <script  src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js">
+ </script>
+ <script>socket=io.connect("https://localhost:443");
+
+ socket.emit('getMessages','contact');
+socket.on('callback',function(data){
+	document.getElementById('reciever_name').innerHTML='<strong>|'+reciever_name + data+' |</strong>';
+
+});
+socket.on('success_callback',function(data){
+	document.getElementById('reciever_name').innerHTML='<strong>|'+reciever_name + data+' |</strong>';
+
+})
+
+
+
+
+//========================================================new msg event===================================================================================
+ socket.on('out_msg',function(data){
+console.log('eventcaptured');
+
+//=======================appnding msgs to corresponding friend ul element from data.from value==========================
+var sender_name=data.from;
+
+if(sender_name==names['friend1']){
+
+document.getElementById('span_msg1').innerHTML=data.from+':'+data.message;
+//===================================================setting script to display nw mess alert.........!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(document.getElementById('friend1_window').className=='activeW'){
+document.getElementById('span_msg1').style.fontWeight="normal";
+
+}
+else
+{
+	document.getElementById('span_msg1').style.fontWeight="bold"
+}
+
+	
+//append for friend 1
+var friend1_col=document.getElementById("friend1_window");
+var li=document.createElement("li");
+friend1_col.appendChild(li);
+li.innerHTML= '<img src="{{friend1}}" id="profile" alt="" /> <p>'+data.from+':'+data.message+"</p>";
+li.className="replies";	
+
+}
+else if(sender_name==names['friend2']){
+
+document.getElementById('span_msg2').innerHTML=data.from+':'+data.message;
+
+//===================================================setting script to display nw mess alert.........!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(document.getElementById('friend2_window').className=='activeW'){
+document.getElementById('span_msg2').style.fontWeight="normal";
+}
+else
+{
+	document.getElementById('span_msg2').style.fontWeight="bold"
+}
+
+//append for friend 2
+var friend2_col=document.getElementById("friend2_window");
+var li=document.createElement("li");
+friend2_col.appendChild(li);
+li.innerHTML= '<img src="{{friend2}}" id="profile" alt="" /> <p>'+data.from+':'+data.message+"</p>";
+li.className="replies";	
+console.log('mssage for frind2 appnded');
+
+}
+else if(sender_name==names['friend3']){
+
+document.getElementById('span_msg3').innerHTML=data.from+':'+data.message;
+
+//===================================================setting script to display nw mess alert.........!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(document.getElementById('friend3_window').className=='activeW'){
+document.getElementById('span_msg3').style.fontWeight="normal";
+}
+else
+{
+	document.getElementById('span_msg3').style.fontWeight="bold";
+}
+	
+//append for friend 3
+var friend3_col=document.getElementById("friend3_window");
+var li=document.createElement("li");
+friend3_col.appendChild(li);
+li.innerHTML= '<img src="{{friend3}}" id="profile" alt="" /> <p>'+data.from+':'+data.message+"</p>";
+li.className="replies";	
+
+}
+
+else if(sender_name==names['friend4']){
+
+document.getElementById('span_msg4').innerHTML=data.from+':'+data.message;
+
+//===================================================setting script to display nw mess alert.........!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(document.getElementById('friend4_window').className=='activeW'){
+document.getElementById('span_msg4').style.fontWeight="normal";
+}
+else
+{
+	document.getElementById('span_msg4').style.fontWeight="bold"
+}
+	
+//append for friend 4
+var friend4_col=document.getElementById("friend4_window");
+var li=document.createElement("li");
+friend4_col.appendChild(li);
+li.innerHTML= '<img src="{{friend4}}" id="profile" alt="" /> <p>'+data.from+':'+data.message+"</p>";
+li.className="replies";	
+
+}
+else if(sender_name==names['friend5']){
+	
+document.getElementById('span_msg5').innerHTML=data.from+':'+data.message;
+//===================================================setting script to display nw mess alert.........!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(document.getElementById('friend5_window').className=='activeW'){
+document.getElementById('span_msg5').style.fontWeight="normal";
+}
+else
+{
+	document.getElementById('span_msg5').style.fontWeight="bold"
+}
+
+//append for friend 5
+var friend5_col=document.getElementById("friend5_window");
+var li=document.createElement("li");
+friend5_col.appendChild(li);
+li.innerHTML= '<img src="{{friend5}}" id="profile" alt="" /> <p>'+data.from+':'+data.message+"</p>";
+li.className="replies";	
+
+}
+
+
+
+});
+
+
+
+//===================getting msg for chatroom from chatroom evnts============
+socket.on('general_msg',function(data){
+document.getElementById('span_msg0').innerHTML=data.from+':'+data.message;
+//===================================================setting script to display nw mess alert.........!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(document.getElementById('chatroom_window').className=='activeW'){
+document.getElementById('span_msg0').style.fontWeight="normal";
+}
+else
+{
+	document.getElementById('span_msg0').style.fontWeight="bold"
+}
+	
+var chatroom_col=document.getElementById("chatroom_window");
+var li=document.createElement("li");
+chatroom_col.appendChild(li);
+li.innerHTML= '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRagPPCHfG3rsaIPa8pSkl5157qqYvXD3LYANWQZyX13OH1SFyg" id="profile" alt="" /> <p><strong>'+data.from+':</strong>'+data.message+"</p>";
+li.className="replies";	
+
+
+});
+
+
+
+//======================================getting message for msg_bin events
+
+socket.on('bin_msg',function(data){
+document.getElementById('span_msg_msg_bin').innerHTML=data.from+':'+data.message;
+//===================================================setting script to display nw mess alert.........!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(document.getElementById('msg_bin_window').className=='activeW'){
+document.getElementById('span_msg_msg_bin').style.fontWeight="normal";
+}
+else
+{
+  document.getElementById('span_msg_msg_bin').style.fontWeight="bold"
+}
+  
+var msg_bin_col=document.getElementById("msg_bin_window");
+var li=document.createElement("li");
+msg_bin_col.appendChild(li);
+li.innerHTML= '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQorGp02XzXxNNCKLka32RtQGNY47SqKCSqmGVvIki7nY4v-GWU6w" id="profile" alt="" /> <p><strong>'+data.from+':</strong>'+data.message+"</p>";
+li.className="replies"; 
+
+
+});
+
+
+
+
+
+
+ </script> 
+ <script>
+
+
+
+document.getElementById("li_chatroom").addEventListener('click',chatroomAction, false);
+
+//=================================================================================function for click event======================================
+
+document.getElementById("li_msg_bin").addEventListener('click',showmsg_bin, false);
+
+//function for click event
+ function showmsg_bin(e){
+  //constact as active
+  document.getElementById("li_chatroom").className="contact ";
+  document.getElementById("li_friend1").className="contact ";
+  document.getElementById("li_friend2").className="contact";
+  document.getElementById("li_friend3").className="contact";
+  document.getElementById("li_friend4").className="contact ";
+  document.getElementById("li_friend5").className="contact";
+   document.getElementById("li_msg_bin").className="contact active";
+//stting chat window name
+ reciever_name="Message_bin";
+ document.getElementById("reciever_name").innerHTML=names['friend1'];
+//========================stting class of slctd user as active while of other as inactive
+
+
+document.getElementById("chatroom_window").className="inactiveW";
+document.getElementById("friend1_window").className="inactiveW";
+document.getElementById("friend2_window").className="inactiveW";
+document.getElementById("friend3_window").className="inactiveW";
+document.getElementById("friend4_window").className="inactiveW";
+document.getElementById("friend5_window").className="inactiveW";
+document.getElementById("msg_bin_window").className="activeW";
+
+// unhidding th window of selected friend and hidding window of othr frinds
+
+document.getElementById("chatroom_window").style.display="none";
+document.getElementById("friend1_window").style.display="none";
+document.getElementById("friend2_window").style.display="none";
+document.getElementById("friend3_window").style.display="none";
+document.getElementById("friend4_window").style.display="none";
+document.getElementById("friend5_window").style.display="none";
+document.getElementById("msg_bin_window").style.display="block";
+
+//===========================================================hidding msg alrts======================================================
+document.getElementById('span_msg_msg_bin').style.fontWeight="normal";
+
+//output the meessages of selectd user
+
+
+var par=document.getElementById("p_id");
+
+par.innerHTML="message_bin";
+
+//==========setting dp of chat window==========
+document.getElementById("reciever_img").src="https://cdn4.iconfinder.com/data/icons/email-02-popglyph/512/46_delete_remove_trash_recycle_bin_file_mail_message-512.png";
+//=====================================clearing stored messages============================
+ socket.emit('clearMessages','{{username}}');
+
+
+
+
+}
+
+
+
+
+
+
+document.getElementById("li_friend1").addEventListener('click',showFriend1, false);
+
+//function for click event
+ function showFriend1(e){
+ 	//constact as active
+ 	document.getElementById("li_chatroom").className="contact ";
+ 	document.getElementById("li_friend1").className="contact active";
+ 	document.getElementById("li_friend2").className="contact";
+ 	document.getElementById("li_friend3").className="contact";
+ 	document.getElementById("li_friend4").className="contact ";
+ 	document.getElementById("li_friend5").className="contact";
+    document.getElementById("li_msg_bin").className="contact";
+//stting chat window name
+ reciever_name=names['friend1'];
+ document.getElementById("reciever_name").innerHTML=names['friend1'];
+//========================stting class of slctd user as active while of other as inactive
+
+
+document.getElementById("chatroom_window").className="inactiveW";
+document.getElementById("friend1_window").className="activeW";
+document.getElementById("friend2_window").className="inactiveW";
+document.getElementById("friend3_window").className="inactiveW";
+document.getElementById("friend4_window").className="inactiveW";
+document.getElementById("friend5_window").className="inactiveW";
+document.getElementById("msg_bin_window").className="inactiveW";
+
+
+// unhidding th window of selected friend and hidding window of othr frinds
+
+document.getElementById("chatroom_window").style.display="none";
+document.getElementById("friend1_window").style.display="block";
+document.getElementById("friend2_window").style.display="none";
+document.getElementById("friend3_window").style.display="none";
+document.getElementById("friend4_window").style.display="none";
+document.getElementById("friend5_window").style.display="none";
+document.getElementById("msg_bin_window").style.display="none";
+
+//===========================================================hidding msg alrts======================================================
+document.getElementById('span_msg1').style.fontWeight="normal";
+
+//output the meessages of selectd user
+
+
+var par=document.getElementById("p_id");
+
+par.innerHTML= names['friend1'];
+
+//==========setting dp of chat window==========
+document.getElementById("reciever_img").src="{{friend1}}";
+
+
+}
+
+
+document.getElementById("li_friend2").addEventListener('click',showFriend2, false);
+ function showFriend2(e){
+    document.getElementById("li_chatroom").className="contact ";
+ 	document.getElementById("li_friend1").className="contact";
+ 	document.getElementById("li_friend2").className="contact active";
+ 	document.getElementById("li_friend3").className="contact";
+ 	document.getElementById("li_friend4").className="contact ";
+ 	document.getElementById("li_friend5").className="contact";
+    document.getElementById("li_msg_bin").className="contact"; 
+
+
+
+ reciever_name=names['friend2'];
+ document.getElementById("reciever_name").innerHTML=names['friend2'];
+
+
+document.getElementById("chatroom_window").className="inactiveW";
+document.getElementById("friend1_window").className="inactiveW";
+document.getElementById("friend2_window").className="activeW";
+document.getElementById("friend3_window").className="inactiveW";
+document.getElementById("friend4_window").className="inactiveW";
+document.getElementById("friend5_window").className="inactiveW";
+document.getElementById("msg_bin_window").className="inactiveW";
+// unhidding th window of selected friend and hidding window of othr frinds
+
+document.getElementById("chatroom_window").style.display="none";
+document.getElementById("friend1_window").style.display="none";
+document.getElementById("friend2_window").style.display="block";
+document.getElementById("friend3_window").style.display="none";
+document.getElementById("friend4_window").style.display="none";
+document.getElementById("friend5_window").style.display="none";
+document.getElementById("msg_bin_window").style.display="none";
+//===========================================================hidding msg alrts======================================================
+
+document.getElementById('span_msg2').style.fontWeight="normal";
+var par=document.getElementById("p_id");
+par.innerHTML= names['friend2'];
+
+//==========setting dp of chat window==========
+document.getElementById("reciever_img").src="{{friend2}}";
+}
+
+document.getElementById("li_friend3").addEventListener('click',showFriend3, false);
+ function showFriend3(e){
+ 	document.getElementById("li_chatroom").className="contact ";
+ 	document.getElementById("li_friend1").className="contact";
+ 	document.getElementById("li_friend2").className="contact";
+ 	document.getElementById("li_friend3").className="contact active";
+ 	document.getElementById("li_friend4").className="contact";
+ 	document.getElementById("li_msg_bin").className="contact";
+
+document.getElementById("li_friend5").className="contact";
+document.getElementById("chatroom_window").className="inactiveW";
+document.getElementById("friend1_window").className="inactiveW";
+document.getElementById("friend2_window").className="inactiveW";
+document.getElementById("friend3_window").className="activeW";
+document.getElementById("friend4_window").className="inactiveW";
+document.getElementById("friend5_window").className="inactiveW";
+document.getElementById("msg_bin_window").className="inactiveW";
+// unhidding th window of selected friend and hidding window of othr frinds
+
+document.getElementById("chatroom_window").style.display="none";
+document.getElementById("friend1_window").style.display="none";
+document.getElementById("friend2_window").style.display="none";
+document.getElementById("friend3_window").style.display="block";
+document.getElementById("friend4_window").style.display="none";
+document.getElementById("friend5_window").style.display="none";
+document.getElementById("msg_bin_window").style.display="none";
+//===========================================================hidding msg alrts======================================================
+document.getElementById('span_msg3').style.fontWeight="normal";
+
+ reciever_name=names['friend3'];
+ document.getElementById("reciever_name").innerHTML=names['friend3'];
+
+var par=document.getElementById("p_id");
+par.innerHTML= names['friend3'];
+
+//==========setting dp of chat window==========
+document.getElementById("reciever_img").src="{{friend3}}";
+
+
+}
+
+document.getElementById("li_friend4").addEventListener('click',showFriend4, false);
+ function showFriend4(e){
+ 	document.getElementById("li_chatroom").className="contact ";
+ 	document.getElementById("li_friend1").className="contact";
+ 	document.getElementById("li_friend2").className="contact";
+ 	document.getElementById("li_friend3").className="contact";
+ 	document.getElementById("li_friend4").className="contact active";
+ 	document.getElementById("li_friend5").className="contact";
+  document.getElementById("li_msg_bin").className="contact";
+
+
+
+ 	document.getElementById("chatroom_window").className="inactiveW";
+document.getElementById("friend1_window").className="inactiveW";
+document.getElementById("friend2_window").className="inactiveW";
+document.getElementById("friend3_window").className="inactiveW";
+document.getElementById("friend4_window").className="activeW";
+document.getElementById("friend5_window").className="inactiveW";
+document.getElementById("msg_bin_window").className="inactiveW";
+
+
+// unhidding th window of selected friend and hidding window of othr frinds
+
+document.getElementById("chatroom_window").style.display="none";
+document.getElementById("friend1_window").style.display="none";
+document.getElementById("friend2_window").style.display="none";
+document.getElementById("friend3_window").style.display="none";
+document.getElementById("friend4_window").style.display="block";
+document.getElementById("friend5_window").style.display="none";
+document.getElementById("msg_bin_window").style.display="none";
+
+
+ 	 reciever_name=names['friend4'];
+ document.getElementById("reciever_name").innerHTML=names['friend4'];
+
+
+//===========================================================hidding msg alrts======================================================
+document.getElementById('span_msg4').style.fontWeight="normal";
+
+ var par=document.getElementById("p_id");
+ par.innerHTML= names['friend4'];
+
+ //==========setting dp of chat window==========
+document.getElementById("reciever_img").src="{{friend4}}";
+}
+
+document.getElementById("li_friend5").addEventListener('click',showFriend5, false);
+ function showFriend5(e){
+ document.getElementById("li_chatroom").className="contact ";
+ 	document.getElementById("li_friend1").className="contact";
+ 	document.getElementById("li_friend2").className="contact";
+ 	document.getElementById("li_friend3").className="contact";
+ 	document.getElementById("li_friend4").className="contact ";
+ 	document.getElementById("li_friend5").className="contact active";
+document.getElementById("li_msg_bin").className="contact ";
+
+document.getElementById("chatroom_window").className="inactiveW";
+document.getElementById("friend1_window").className="inactiveW";
+document.getElementById("friend2_window").className="inactiveW";
+document.getElementById("friend3_window").className="inactiveW";
+document.getElementById("friend4_window").className="inactiveW";
+document.getElementById("friend5_window").className="activeW";
+document.getElementById("msg_bin_window").className="inactiveW";
+
+// unhidding th window of selected friend and hidding window of othr frinds
+
+document.getElementById("chatroom_window").style.display="none";
+document.getElementById("friend1_window").style.display="none";
+document.getElementById("friend2_window").style.display="none";
+document.getElementById("friend3_window").style.display="none";
+document.getElementById("friend4_window").style.display="none";
+document.getElementById("friend5_window").style.display="block";
+document.getElementById("msg_bin_window").style.display="none";
+//===========================================================hidding msg alrts======================================================
+document.getElementById('span_msg5').style.fontWeight="normal";
+
+ reciever_name=names['friend5'];
+ document.getElementById("reciever_name").innerHTML=names['friend5'];
+
+var par=document.getElementById("p_id");
+par.innerHTML= names['friend5'];
+
+//==========setting dp of chat window==========
+document.getElementById("reciever_img").src="{{friend5}}";
+
+}
+
+
+//================================getting online user data====================================
+
+var myVar = setInterval(function(){
+
+
+socket.emit('getOnlineUsers',{
+	friend1:names['friend1'],
+	friend2:names['friend2'],
+	friend3:names['friend3'],
+	friend4:names['friend4'],
+	friend5:names['friend5']
+	});
+},1000);
+
+
+socket.on('onlineFrnds',function(data){
+if(data[0]!='-1')
+document.getElementById("span_friend1").className="contact-status online";	
+else if(data[0]=='-1')
+document.getElementById("span_friend1").className="contact-status busy";	
+if(data[1] !='-1')
+document.getElementById("span_friend2").className="contact-status online";	
+else if(data[1]=='-1')
+document.getElementById("span_friend2").className="contact-status busy";
+if(data[2]!='-1')
+document.getElementById("span_friend3").className="contact-status online";	
+else if(data[2]=='-1')
+document.getElementById("span_friend3").className="contact-status busy";
+if(data[3]!='-1')
+document.getElementById("span_friend4").className="contact-status online";	
+else if(data[3]=='-1')
+document.getElementById("span_friend4").className="contact-status busy";
+if(data[4]!='-1')
+document.getElementById("span_friend5").className="contact-status online";	
+else if(data[4]=='-1')
+document.getElementById("span_friend5").className="contact-status busy";
+
+});
+socket.on('onlineUsers',function(data){
+	document.getElementById("name_chatroom").innerHTML='Chat Room ::online Users ('+data+')';
+   console.log('event occured');
+});
+
+//=============================================================adding user on search rsult==============================
+socket.on('return_user',function(data){
+
+console.log(data);
+
+if(data.name){
+  
+if(data.username!=names['friend1'] && data.username!=names['friend2'] &&data.username!=names['friend3'] &&data.username!=names['friend4'] &&data.username!=names['friend5'] )
+{
+  
+if(!names['friend1'])
+{ names['friend1']=data.username;
+  document.getElementById("li_friend1").style.display="block";
+  document.getElementById("name_friend1").innerHTML=data.name+':'+data.about;
+  document.getElementById("friend1_window").innerHTML="";
+showFriend1();
+
+}
+else if(!names['friend2'])
+{ names['friend2']=data.username;
+ 
+  document.getElementById("li_friend2").style.display="block";
+  document.getElementById("name_friend2").innerHTML=data.name+':'+data.about;
+  document.getElementById("friend2_window").innerHTML="";
+showFriend2();
+}
+else if(!names['friend3'])
+{ names['friend3']=data.username;
+  document.getElementById("li_friend3").style.display="block";
+  document.getElementById("name_friend3").innerHTML=data.name+':'+data.about;
+  document.getElementById("friend3_window").innerHTML="";
+showFriend3();
+}
+else if(!names['friend4'])
+{ names['friend4']=data.username;
+   document.getElementById("li_friend4").style.display="block";
+  document.getElementById("name_friend4").innerHTML=data.name+':'+data.about;
+  document.getElementById("friend4_window").innerHTML="";
+showFriend4();
+}
+else {
+
+ names['friend5']=data.username;
+  document.getElementById("li_friend5").style.display="block";
+  document.getElementById("name_friend5").innerHTML=data.name+':'+data.about;
+ document.getElementById("friend5_window").innerHTML="";
+showFriend5();
+}
+
+
+}
+else
+{
+if(data.username==names['friend1'])
+{ names['friend1']=data.username;
+  document.getElementById("li_friend1").style.display="block";
+  document.getElementById("name_friend1").innerHTML=data.name+':'+data.about;
+showFriend1();
+
+}
+else if(data.username==names['friend2'])
+{ names['friend2']=data.username;
+ 
+  document.getElementById("li_friend2").style.display="block";
+  document.getElementById("name_friend2").innerHTML=data.name+':'+data.about;
+showFriend2();
+}
+else if(data.username==names['friend3'])
+{ names['friend3']=data.username;
+  document.getElementById("li_friend3").style.display="block";
+  document.getElementById("name_friend3").innerHTML=data.name+':'+data.about;
+showFriend3();
+}
+else if(data.username==names['friend4'])
+{ names['friend4']=data.username;
+   document.getElementById("li_friend4").style.display="block";
+  document.getElementById("name_friend4").innerHTML=data.name+':'+data.about;
+showFriend4();
+}
+else if(data.username==names['friend5']) {
+
+ names['friend5']=data.username;
+  document.getElementById("li_friend5").style.display="block";
+  document.getElementById("name_friend5").innerHTML=data.name+':'+data.about;
+showFriend5();
+}
+  
+
+}
+
+}
+
+
+else{
+  
+  document.getElementById("search-contact").value="no user found";
+}
+
+
+
+})
+
+
+//================================updaating frind list function
+   
+var names_init={};
+
+var frndsUpdt = setInterval(function(){
+if(JSON.stringify(names)!=JSON.stringify(names_init))
+
+ {
+  socket.emit('updateFriendList',names);
+
+   console.log('event to update emitted');
+  
+    names_init['friend1']=names['friend1'];
+    names_init['friend2']=names['friend2'];
+    names_init['friend3']=names['friend3'];
+    names_init['friend4']=names['friend4'];
+    names_init['friend5']=names['friend5'];
+ 
+ }
+ 
+  console.log(names);
+  console.log(names_init);
+   console.log('update emitting');
+  
+},5000);
+
+
+
+function subToPage2(){
+//check ithr msg_bin or chatroom is not selected  
+//get active window and find which frind is selected 
+//then emit delete friend event with friend name
+console.log("button clicked");
+var active_col=document.getElementsByClassName("activeW");
+//appnding to latest msgs
+if(active_col[0].id=="friend1_window"){
+deleteFriend(names["friend1"]);
+names["friend1"]="";
+document.getElementById("li_friend1").style.display="none";
+
+}
+else if(active_col[0].id=="friend2_window"){
+  
+deleteFriend(names["friend2"]);
+names["friend2"]="";
+document.getElementById("li_friend2").style.display="none";
+}
+
+else if(active_col[0].id=="friend3_window"){
+  
+deleteFriend(names["friend3"]);
+names["friend3"]="";
+document.getElementById("li_friend3").style.display="none";
+
+}
+else if(active_col[0].id=="friend4_window"){
+  
+deleteFriend(names["friend4"]);
+names["friend4"]="";
+document.getElementById("li_friend4").style.display="none";
+
+}
+else if(active_col[0].id=="friend5_window"){
+  
+deleteFriend(names["friend5"]);
+names["friend5"]="";
+document.getElementById("li_friend5").style.display="none";
+
+}
+
+
+}
+
+
+
+function deleteFriend(name){
+console.log(name+'is deleted');
+friends.splice(friends.indexOf(name,1));
+ socket.emit('deleteFriend',name);
+  
+}
+
+document.getElementById("theme-form").addEventListener('submit', subToPage3, false);
+function subToPage3(e){
+e.preventDefault();
+ 
+
+
+}
+
+
+socket.on('return_messages',function(data){
+  console.log(data);
+console.log(data.length); 
+var limit=data.length; 
+for(var i=0 ;i<limit;i++){
+document.getElementById('span_msg_msg_bin').innerHTML=data[i];
+var li=document.createElement("li");
+document.getElementById("msg_bin_window").appendChild(li);
+li.innerHTML= '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQorGp02XzXxNNCKLka32RtQGNY47SqKCSqmGVvIki7nY4v-GWU6w" id="profile" alt="" /> <p>'+data[i]+"</p>";
+li.className="replies";
+  
+
+
+}
+
+});
+
+</script>
+
+
+
+</body>
